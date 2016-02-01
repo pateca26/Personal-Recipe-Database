@@ -1,1 +1,1 @@
-# OCR-Project
+# Personal Recipe Scanner
