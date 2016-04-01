@@ -19,6 +19,7 @@
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
@@ -31,9 +32,11 @@ QT_BEGIN_NAMESPACE
 class Ui_MainWindow
 {
 public:
+    QAction *actionClose;
     QWidget *centralWidget;
     QHBoxLayout *horizontalLayout;
     QMenuBar *menuBar;
+    QMenu *menuFile;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
     QDockWidget *dockWidget_2;
@@ -50,6 +53,8 @@ public:
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
         MainWindow->resize(587, 436);
+        actionClose = new QAction(MainWindow);
+        actionClose->setObjectName(QStringLiteral("actionClose"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         horizontalLayout = new QHBoxLayout(centralWidget);
@@ -60,6 +65,8 @@ public:
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 587, 22));
+        menuFile = new QMenu(menuBar);
+        menuFile->setObjectName(QStringLiteral("menuFile"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -122,14 +129,20 @@ public:
         dockWidget_2->setWidget(dockWidgetContents_2);
         MainWindow->addDockWidget(static_cast<Qt::DockWidgetArea>(1), dockWidget_2);
 
+        menuBar->addAction(menuFile->menuAction());
+        menuFile->addAction(actionClose);
+
         retranslateUi(MainWindow);
+        QObject::connect(actionClose, SIGNAL(triggered()), MainWindow, SLOT(close()));
 
         QMetaObject::connectSlotsByName(MainWindow);
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Recipe Scaner", 0));
+        actionClose->setText(QApplication::translate("MainWindow", "Close", 0));
+        menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         groupBox->setTitle(QString());
         toolButton->setText(QApplication::translate("MainWindow", "+", 0));
         toolButton_2->setText(QApplication::translate("MainWindow", "-", 0));
