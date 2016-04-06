@@ -17,7 +17,7 @@ DbManager::DbManager(const QString &path)
     }
     else
     {
-        qDebug() << "Database: connection ok";
+        qDebug() << "Database: connection established";
     }
 }
 
