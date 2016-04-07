@@ -8,7 +8,7 @@
 
 DbManager::DbManager(const QString &path)
 {
-    //SETS PATH TO db
+    //SETS PATH TO DB
     QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
     mydb.setDatabaseName("C:/Sqlite3/scanner.db");
 
@@ -35,7 +35,7 @@ bool DbManager::isOpen() const
     return mydb.isOpen();
 }
 
-//SHOULD RENAIM THIS A LITTLE BETTER
+//SHOULD RENAME THIS A LITTLE BETTER
 //THIS WILL BE USED MOST
 //MAY NEED TO GET CHANGED SLIGHTLY TO ACOMODATE THE TESSERACT LIBRARY
 bool DbManager::addFile(const QString& file)
