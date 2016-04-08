@@ -17,10 +17,12 @@
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenu>
 #include <QtWidgets/QMenuBar>
+#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QToolButton>
@@ -34,7 +36,9 @@ class Ui_MainWindow
 public:
     QAction *actionClose;
     QWidget *centralWidget;
-    QHBoxLayout *horizontalLayout;
+    QVBoxLayout *verticalLayout_2;
+    QPushButton *pushButton;
+    QLabel *picture_output;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QToolBar *mainToolBar;
@@ -57,10 +61,26 @@ public:
         actionClose->setObjectName(QStringLiteral("actionClose"));
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        horizontalLayout = new QHBoxLayout(centralWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        verticalLayout_2 = new QVBoxLayout(centralWidget);
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        verticalLayout_2->addWidget(pushButton);
+
+        picture_output = new QLabel(centralWidget);
+        picture_output->setObjectName(QStringLiteral("picture_output"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Preferred);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(picture_output->sizePolicy().hasHeightForWidth());
+        picture_output->setSizePolicy(sizePolicy);
+        picture_output->setMaximumSize(QSize(10000, 10000));
+
+        verticalLayout_2->addWidget(picture_output);
+
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
@@ -142,6 +162,8 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Recipe Scaner", 0));
         actionClose->setText(QApplication::translate("MainWindow", "Close", 0));
+        pushButton->setText(QApplication::translate("MainWindow", "Open Image", 0));
+        picture_output->setText(QString());
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0));
         groupBox->setTitle(QString());
         toolButton->setText(QApplication::translate("MainWindow", "+", 0));

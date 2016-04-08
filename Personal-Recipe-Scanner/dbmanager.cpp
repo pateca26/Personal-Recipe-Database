@@ -1,5 +1,5 @@
 #include "dbmanager.h"
-#include "ui_dbmanager.h"
+//#include "ui_mainwindow.h"
 #include <dbmanager.h>
 #include <QSqlQuery>
 #include <QSqlError>

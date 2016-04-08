@@ -2,12 +2,17 @@
 #include "ui_mainwindow.h"
 #include <QtWidgets>
 #include <QtGui>
+#include <QFileDialog>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    ui->picture_output->setSizePolicy(QSizePolicy::Ignored, QSizePolicy::Ignored);
+    ui->picture_output->setScaledContents(true);
+
 }
 
 MainWindow::~MainWindow()
@@ -36,5 +41,23 @@ void MainWindow::on_toolButton_2_clicked()
     if(reply==QMessageBox::Yes){
     delete itm;
     }
+
+}
+
+void MainWindow::on_pushButton_clicked()
+{
+    QString imagefile=QFileDialog::getOpenFileName(
+                this,
+                tr("Open Image"),
+                "/Users/",
+                "All files(*.*);;Image files(*.jpg)"
+                );
+
+    QMessageBox::information(this,tr("Image Name"),"Button Clicked");
+
+    QPixmap pix(imagefile);
+    ui->picture_output->setPixmap(pix);
+
+
 
 }
