@@ -8,6 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->RecipePreview->setText("Select a Recipe...");
 }
 
 MainWindow::~MainWindow()
@@ -15,13 +16,15 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-void MainWindow::on_toolButton_clicked()
+void MainWindow::on_addRecipeButton_clicked()
 {
-    ui->listWidget->addItem("new item");
+    QString imageFile = QFileDialog::getOpenFileName(this, tr("Open Recipe"), QDir::homePath(), tr("Image Files (*.bmp *.gif *.jpeg *.jpg *.png)"));
+    ui->RecipePreview->setPixmap(imageFile);
+    // TESSERACT STUFF
+    ui->listWidget->addItem(imageFile);
 }
 
-void MainWindow::on_toolButton_2_clicked()
+void MainWindow::on_deleteRecipeButton_clicked()
 {
     /*deleting a recipe from the list*/
     QListWidgetItem *itm= ui->listWidget->currentItem();
@@ -34,7 +37,8 @@ void MainWindow::on_toolButton_2_clicked()
                            QMessageBox::Yes|QMessageBox::No);
 
     if(reply==QMessageBox::Yes){
-    delete itm;
+        delete itm;
+        // check if current recipe preview
     }
 
 }
