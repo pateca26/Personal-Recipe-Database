@@ -53,8 +53,6 @@ void MainWindow::on_pushButton_clicked()
                 "All files(*.*);;Image files(*.jpg)"
                 );
 
-    QMessageBox::information(this,tr("Image Name"),"Button Clicked");
-
     QPixmap pix(imagefile);
     ui->picture_output->setPixmap(pix);
 
