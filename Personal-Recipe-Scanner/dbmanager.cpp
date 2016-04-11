@@ -12,6 +12,10 @@ DbManager::DbManager(const QString &path)
     QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
     mydb.setDatabaseName("C:/Sqlite3/scanner.db");
 
+
+
+
+//Can output this to the GUI as a status message
     if (!mydb.open())
     {
         qDebug() << "Error: connection with database fail";
