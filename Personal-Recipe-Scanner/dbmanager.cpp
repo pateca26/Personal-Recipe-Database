@@ -1,6 +1,5 @@
 #include "dbmanager.h"
 #include "ui_dbmanager.h"
-#include <dbmanager.h>
 #include <QSqlQuery>
 #include <QSqlError>
 #include <QSqlRecord>
@@ -8,21 +7,20 @@
 
 DbManager::DbManager(const QString &path)
 {
-    //SETS PATH TO DB
+
+    //needed to load the database file. Needs to be //whatever location you have the file in
+     //test to see if it's connected or not
+
     QSqlDatabase mydb=QSqlDatabase::addDatabase("QSQLITE");
     mydb.setDatabaseName("C:/Sqlite3/scanner.db");
 
-
-
-
-//Can output this to the GUI as a status message
     if (!mydb.open())
     {
         qDebug() << "Error: connection with database fail";
     }
     else
     {
-        qDebug() << "Database: connection established";
+        qDebug() << "Database: connection ok";
     }
 }
 
@@ -39,10 +37,7 @@ bool DbManager::isOpen() const
     return mydb.isOpen();
 }
 
-//SHOULD RENAME THIS A LITTLE BETTER
-//THIS WILL BE USED MOST
-//MAY NEED TO GET CHANGED SLIGHTLY TO ACOMODATE THE TESSERACT LIBRARY
-bool DbManager::addFile(const QString& file)
+bool DbManager::addCharacter(const QString& file)
 {
     bool success = false;
 
@@ -69,11 +64,11 @@ bool DbManager::addFile(const QString& file)
     return success;
 }
 
-bool DbManager::removefile(const QString& file)
+bool DbManager::removeCharacter(const QString& file)
 {
     bool success = false;
 
-    if (personExists(file))
+    if (characterExists(file))
     {
         QSqlQuery queryDelete;
         queryDelete.prepare("DELETE FROM File WHERE character = (:character)");
