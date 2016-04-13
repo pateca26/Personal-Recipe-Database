@@ -69,7 +69,7 @@ public:
      * @brief Remove all character from db
      * @return true - all characters removed successfully, false - not removed
      */
-    bool removeAllCharacter();
+    bool removeAllCharacters();
 
 private:
     QSqlDatabase mydb;
