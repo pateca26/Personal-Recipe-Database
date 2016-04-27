@@ -27,6 +27,7 @@ Recipes::~Recipes()
 
 void Recipes::on_pushButton_clicked()
 {
+    QString filename;
     Login conn;
     QString rid,recipe;
     rid = ui->rid->text();
@@ -40,6 +41,26 @@ void Recipes::on_pushButton_clicked()
 
     //open db
     conn.connOpen();
+
+    QByteArray byte;
+    QFile file(filename);
+    if(file.open(QIODevice::ReadOnly))
+    {
+         byte = file.readAll();
+         file.close();
+    }
+    QMessageBox :: critical(this,"Error",filename);
+    QSqlQuery query;
+    query.prepare("insert into recipe(image) values (:image)");
+    query.bindValue(":image",byte);
+    if(query.exec())
+      {
+         QMessageBox :: information(this,"Save","Data Inserted successfully", QMessageBox ::Ok);
+      }
+    else
+      {
+         QMessageBox :: critical(this,"Error","Couldn't insert data");
+      }
 
     //sql query
     QSqlQuery qry;
@@ -111,4 +132,17 @@ void Recipes::on_pushButton_load_clicked()
     qDebug() << (model->rowCount());
 
 
+}
+
+void Recipes::on_pushButton_addImage_clicked()
+{
+
+    QString filename;
+    QString imageFile = QFileDialog ::getOpenFileName(0,"Select Image","/home/","Image Files (*.png)");
+
+      QFileInfo info(imageFile);
+      filename = info.fileName();
+      QPixmap image (imageFile);
+      ui->lblBkImge->setPixmap(image);
+      ui->lblBkImge->show();
 }
