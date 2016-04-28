@@ -6,49 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>465</width>
-    <height>428</height>
+    <width>822</width>
+    <height>434</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>110</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Save</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>60</y>
-     <width>71</width>
-     <height>21</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Recipe Input:</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="txt_recipe">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>80</y>
-     <width>171</width>
-     <height>21</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QLabel" name="label_sec_status">
    <property name="geometry">
     <rect>
@@ -62,90 +26,123 @@
     <string>+Status</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="rid">
-   <property name="geometry">
-    <rect>
-     <x>70</x>
-     <y>20</y>
-     <width>113</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="geometry">
-    <rect>
-     <x>20</x>
-     <y>20</y>
-     <width>51</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Recipe ID:</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton_Edit">
-   <property name="geometry">
-    <rect>
-     <x>100</x>
-     <y>110</y>
-     <width>75</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Update</string>
-   </property>
-  </widget>
   <widget class="QTableView" name="tableView">
    <property name="geometry">
     <rect>
-     <x>200</x>
+     <x>170</x>
      <y>30</y>
-     <width>256</width>
-     <height>181</height>
+     <width>641</width>
+     <height>361</height>
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_load">
+  <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>280</x>
-     <y>220</y>
-     <width>75</width>
-     <height>23</height>
+     <x>170</x>
+     <y>10</y>
+     <width>47</width>
+     <height>13</height>
     </rect>
    </property>
    <property name="text">
-    <string>Load Recipe</string>
+    <string>Recipe:</string>
    </property>
   </widget>
-  <widget class="QPushButton" name="pushButton_addImage">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>360</y>
-     <width>75</width>
-     <height>23</height>
+     <x>10</x>
+     <y>30</y>
+     <width>135</width>
+     <height>234</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Add Image</string>
-   </property>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>Recipe ID:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="rid"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>Recipe Name:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="txt_recipe"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>Ingredients:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Ingredients"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Instructions:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Instructions"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Edit">
+      <property name="text">
+       <string>Update</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton">
+      <property name="text">
+       <string>Save</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
-  <widget class="QLabel" name="lblBkImge">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>20</x>
-     <y>170</y>
-     <width>171</width>
-     <height>161</height>
+     <x>330</x>
+     <y>400</y>
+     <width>272</width>
+     <height>25</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Image</string>
-   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Recipe ID:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Load"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_load">
+      <property name="text">
+       <string>Load Recipe</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>

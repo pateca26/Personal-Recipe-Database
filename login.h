@@ -5,7 +5,14 @@
 #include <QtSql>
 #include <QtDebug>
 #include <QFile>
+#include <QFileDialog>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QPixmap>
+#include <QtWidgets>
 #include "recipes.h"
+
+
 
 namespace Ui {
 class Login;
@@ -53,6 +60,7 @@ private slots:
 
 private:
     Ui::Login *ui;
+
    // QSqlDatabase RDB;
 };
 

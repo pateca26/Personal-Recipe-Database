@@ -24,13 +24,11 @@ private slots:
 
     void on_pushButton_load_clicked();
 
-    void on_pushButton_addImage_clicked();
+
 
 private:
     Ui::Recipes *ui;
-    QPixmap image;
-    QImage  *imageObject;
-    QGraphicsScene *scene;
+
 };
 
 #endif // RECIPES_H
