@@ -42,11 +42,17 @@
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>30</y>
-       <width>47</width>
-       <height>13</height>
+       <width>70</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
      </property>
      <property name="text">
       <string>Username</string>
@@ -55,11 +61,17 @@
     <widget class="QLabel" name="label_3">
      <property name="geometry">
       <rect>
-       <x>20</x>
+       <x>10</x>
        <y>80</y>
-       <width>47</width>
-       <height>13</height>
+       <width>70</width>
+       <height>20</height>
       </rect>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>20</height>
+      </size>
      </property>
      <property name="text">
       <string>Password</string>
@@ -68,7 +80,7 @@
     <widget class="QLineEdit" name="lineEdit_Username">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>80</x>
        <y>30</y>
        <width>113</width>
        <height>20</height>
@@ -78,7 +90,7 @@
     <widget class="QLineEdit" name="lineEdit_Password">
      <property name="geometry">
       <rect>
-       <x>70</x>
+       <x>80</x>
        <y>80</y>
        <width>113</width>
        <height>20</height>
@@ -88,17 +100,48 @@
       <enum>QLineEdit::Password</enum>
      </property>
     </widget>
-    <widget class="QPushButton" name="pushButton">
+    <widget class="QPushButton" name="pushButton_Login">
      <property name="geometry">
       <rect>
-       <x>80</x>
+       <x>20</x>
        <y>110</y>
        <width>75</width>
        <height>23</height>
       </rect>
      </property>
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
      <property name="text">
       <string>Login</string>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_Register">
+     <property name="geometry">
+      <rect>
+       <x>110</x>
+       <y>110</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::StrongFocus</enum>
+     </property>
+     <property name="text">
+      <string>Register</string>
+     </property>
+     <property name="autoDefault">
+      <bool>true</bool>
+     </property>
+     <property name="default">
+      <bool>false</bool>
      </property>
     </widget>
    </widget>
@@ -109,7 +152,7 @@
      <x>0</x>
      <y>0</y>
      <width>250</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>
@@ -124,6 +167,11 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <tabstops>
+  <tabstop>lineEdit_Username</tabstop>
+  <tabstop>lineEdit_Password</tabstop>
+  <tabstop>pushButton_Login</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
