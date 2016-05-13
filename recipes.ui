@@ -6,19 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>822</width>
-    <height>434</height>
+    <width>900</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Recipe Database</string>
   </property>
   <widget class="QLabel" name="label_sec_status">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>400</y>
-     <width>151</width>
+     <x>750</x>
+     <y>410</y>
+     <width>130</width>
      <height>16</height>
     </rect>
    </property>
@@ -26,10 +26,10 @@
     <string>+Status</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tableView">
+  <widget class="QTableView" name="tableView_Recipes">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>240</x>
      <y>30</y>
      <width>641</width>
      <height>361</height>
@@ -39,48 +39,64 @@
   <widget class="QLabel" name="label_6">
    <property name="geometry">
     <rect>
-     <x>170</x>
+     <x>240</x>
      <y>10</y>
-     <width>47</width>
-     <height>13</height>
+     <width>55</width>
+     <height>15</height>
     </rect>
    </property>
+   <property name="minimumSize">
+    <size>
+     <width>55</width>
+     <height>15</height>
+    </size>
+   </property>
    <property name="text">
-    <string>Recipe:</string>
+    <string>Recipes:</string>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget1">
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>30</y>
-     <width>135</width>
-     <height>234</height>
+     <y>20</y>
+     <width>212</width>
+     <height>409</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
+    <property name="spacing">
+     <number>2</number>
+    </property>
+    <property name="sizeConstraint">
+     <enum>QLayout::SetDefaultConstraint</enum>
+    </property>
     <item>
-     <widget class="QLabel" name="label_2">
+     <widget class="QLabel" name="label_RecipeID">
       <property name="text">
        <string>Recipe ID:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="rid"/>
+     <widget class="QLineEdit" name="lineEdit_RecipeID">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+     </widget>
     </item>
     <item>
-     <widget class="QLabel" name="label">
+     <widget class="QLabel" name="label_RecipeName">
       <property name="text">
        <string>Recipe Name:</string>
       </property>
      </widget>
     </item>
     <item>
-     <widget class="QLineEdit" name="txt_recipe"/>
+     <widget class="QLineEdit" name="lineEdit_Name"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_3">
+     <widget class="QLabel" name="label_Ingredients">
       <property name="text">
        <string>Ingredients:</string>
       </property>
@@ -90,7 +106,7 @@
      <widget class="QLineEdit" name="lineEdit_Ingredients"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_4">
+     <widget class="QLabel" name="label_Instructions">
       <property name="text">
        <string>Instructions:</string>
       </property>
@@ -100,14 +116,47 @@
      <widget class="QLineEdit" name="lineEdit_Instructions"/>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton_Edit">
-      <property name="text">
-       <string>Update</string>
+     <spacer name="horizontalSpacer">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
       </property>
-     </widget>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
     </item>
     <item>
-     <widget class="QPushButton" name="pushButton">
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QPushButton" name="pushButton_Clear">
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="text">
+         <string>Clear</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_Delete">
+        <property name="focusPolicy">
+         <enum>Qt::StrongFocus</enum>
+        </property>
+        <property name="text">
+         <string>Delete</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Save">
+      <property name="focusPolicy">
+       <enum>Qt::StrongFocus</enum>
+      </property>
       <property name="text">
        <string>Save</string>
       </property>
@@ -115,36 +164,46 @@
     </item>
    </layout>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget2">
    <property name="geometry">
     <rect>
-     <x>330</x>
+     <x>400</x>
      <y>400</y>
      <width>272</width>
-     <height>25</height>
+     <height>33</height>
     </rect>
    </property>
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QLabel" name="label_5">
-      <property name="text">
-       <string>Recipe ID:</string>
-      </property>
-     </widget>
+     <widget class="QLineEdit" name="lineEdit_Search"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit_Load"/>
-    </item>
-    <item>
-     <widget class="QPushButton" name="pushButton_load">
+     <widget class="QPushButton" name="pushButton_Search">
       <property name="text">
-       <string>Load Recipe</string>
+       <string>Search</string>
       </property>
      </widget>
     </item>
    </layout>
   </widget>
+  <zorder>tableView_Recipes</zorder>
+  <zorder>label_6</zorder>
+  <zorder>layoutWidget1</zorder>
+  <zorder>layoutWidget2</zorder>
+  <zorder>label_sec_status</zorder>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_Name</tabstop>
+  <tabstop>lineEdit_Ingredients</tabstop>
+  <tabstop>lineEdit_Instructions</tabstop>
+  <tabstop>pushButton_Clear</tabstop>
+  <tabstop>pushButton_Delete</tabstop>
+  <tabstop>pushButton_Save</tabstop>
+  <tabstop>lineEdit_Search</tabstop>
+  <tabstop>pushButton_Search</tabstop>
+  <tabstop>lineEdit_RecipeID</tabstop>
+  <tabstop>tableView_Recipes</tabstop>
+ </tabstops>
  <resources/>
  <connections/>
 </ui>
