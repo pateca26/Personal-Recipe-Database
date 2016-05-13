@@ -4,15 +4,8 @@
 #include <QMainWindow>
 #include <QtSql>
 #include <QtDebug>
-#include <QFile>
-#include <QFileDialog>
-#include <QGraphicsScene>
-#include <QGraphicsView>
-#include <QPixmap>
 #include <QtWidgets>
 #include "recipes.h"
-
-
 
 namespace Ui {
 class Login;
@@ -26,42 +19,22 @@ public:
     QSqlDatabase RDB;
 
     //close db
-    void connClose()
-    {
-        RDB.close();
-        RDB.removeDatabase(QSqlDatabase::defaultConnection);
-    }
+    void connClose();
 
     //connect and open to DB
-    bool connOpen()
-    {
-        RDB = QSqlDatabase::addDatabase("QSQLITE");
-        //This needs to be your file path. Notice the direction of the "/"
-        RDB.setDatabaseName("C:/Users/Landon Rehn/Documents/RecipeDB/scanner.db");
-
-        if(!RDB.open())
-        {
-            qDebug()<<("Failed to connect to DB");
-            return false;
-        }
-        else
-        {
-            qDebug()<<("Connected to DB");
-            return true;
-        }
-    }
+    bool connOpen();
 
 public:
     explicit Login(QWidget *parent = 0);
     ~Login();
 
 private slots:
-    void on_pushButton_clicked();
+    void on_pushButton_Login_clicked();
+
+    void on_pushButton_Register_clicked();
 
 private:
     Ui::Login *ui;
-
-   // QSqlDatabase RDB;
 };
 
 #endif // LOGIN_H
